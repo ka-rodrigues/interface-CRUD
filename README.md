@@ -1,75 +1,59 @@
-# 📚 CRUD de Usuários em Python (Terminal)
 
-Este projeto é um **CRUD simples no terminal**, criado em Python, usando somente estruturas básicas como **listas, dicionários e laços de repetição**.  
+# CRUD de Usuários em Python (Terminal)
 
-O objetivo principal é **simular um sistema de cadastro de usuários via terminal**, ótimo para praticar lógica de programação, input de dados e manipulação de dicionários.
-
----
-
-## ⚙️ Funcionalidades
-
-- 🟢 **Criar usuário** (com CPF, nome, idade e e-mail)
-- 🔍 **Consultar usuário** pelo CPF
-- ✏️ **Atualizar dados** de um usuário existente
-- ❌ **Excluir** usuário do sistema
-- 📋 **Menu interativo** para facilitar a navegação
+Este é um programa de CRUD (Criar, Ler, Atualizar e Deletar) desenvolvido em **Python**, com uma interface via **terminal**, que permite ao usuário gerenciar um cadastro simples de usuários. O projeto demonstra conceitos fundamentais de **entrada/saída de dados**, **laços de repetição**, **condicionais** e **manipulação de dicionários**.
 
 ---
 
-## ▶️ Como rodar o projeto
+## Funcionalidades
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/ka-rodrigues/interface-CRUD
-   cd interface-CRUD
-   ```
+O programa oferece um menu interativo com as seguintes operações:
 
-2. Rode o script principal:
-   ```bash
-   python main.py
-   ```
+- `[1] Criar Usuário`: Cadastra um novo usuário com CPF, nome, idade e e-mail.
+- `[2] Ver Usuários`: Exibe os dados de um usuário já cadastrado, com base no CPF.
+- `[3] Atualizar Usuário`: Permite alterar os dados (nome, idade e e-mail) de um usuário existente.
+- `[4] Remover Usuário`: Exclui um usuário do sistema usando o CPF.
+- `[5] Sair`: Encerra o programa.
 
-3. Siga o menu exibido no terminal para navegar entre as opções.
+O sistema inclui verificações básicas, como impedir o cadastro de CPFs duplicados ou tentar alterar/excluir usuários inexistentes.
 
 ---
 
-## 📁 Estrutura do Código
+## Tecnologias Utilizadas
 
-Tudo está contido em um único arquivo, e o menu roda em loop até que o usuário escolha sair.
-
-- `usuarios = {}` → Dicionário que armazena os cadastros usando o CPF como chave
-- Funções separadas para cada operação: criar, ler, atualizar e excluir
-- Sistema de menu com `while True` e `input()`
+- **Python 3**: Linguagem de programação principal utilizada para todo o código.
 
 ---
 
-## ⚠️ Observações
+## Estrutura do Código
 
-- O cadastro impede CPFs duplicados
-- Os dados são **armazenados apenas em memória** (não persistem após encerrar o programa)
-- A função `ler_usuario()` possui um pequeno erro de acesso ao dicionário (está acessando como se fosse um dicionário aninhado, mas os valores estão como tupla)
+- O código é estruturado com um `while True` que mantém o menu interativo até que o usuário escolha a opção de sair.
+- As operações são realizadas por funções separadas: `criar_usuario`, `ler_usuario`, `atualizar_usuario` e `deletar_usuario`.
+- Um dicionário (`usuarios`) é usado para armazenar os dados, com o CPF como chave e os demais dados como valor.
 
-💡 Isso pode ser corrigido trocando a estrutura de `usuarios[CPF] = nome, idade, email` para um dicionário, como:
-```python
-usuarios[CPF] = {"nome": nome, "idade": idade, "email": email}
-```
+**Observação**: Para um funcionamento completo da atualização e leitura, o ideal é que os dados dos usuários sejam armazenados como dicionários aninhados, e não como tuplas.
 
 ---
 
-## 🎯 O que dá pra fazer depois?
+## Próximos Passos e Melhorias
 
-- Salvar os dados em um arquivo `.json`
-- Separar as funções em arquivos diferentes para melhorar a organização
-- Criar uma versão com orientação a objetos
-- Desenvolver uma interface gráfica com Tkinter ou uma API com Flask
+Este projeto pode ser expandido e melhorado com:
+
+- **Validação de dados**: Garantir que os campos sejam inseridos corretamente (por exemplo, idade numérica, e-mail com formato válido).
+- **Tratamento de exceções**: Adicionar `try/except` para prevenir erros com entradas incorretas.
+- **Persistência de dados**: Salvar os cadastros em arquivos `.json` ou `.csv` para não perder os dados após fechar o programa.
+- **Refatoração com POO**: Organizar o projeto com classes e métodos, como uma classe `Usuario` ou `SistemaCRUD`.
+- **Interface Gráfica (GUI)**: Criar uma interface visual utilizando Tkinter, PySimpleGUI ou outro framework leve.
+- **Versão Web ou API**: Expandir o projeto para um backend simples com Flask ou FastAPI.
 
 ---
 
-## 🧠 Aprendizados
+## Aprendizados
 
-Esse projeto é excelente para:
+Este projeto é uma ótima forma de praticar:
 
-- Entender como funciona um CRUD na prática
-- Trabalhar com dicionários e estrutura de repetição
-- Criar menus simples de interação com o usuário
-- Refletir sobre organização de código e boas práticas
+- Lógica de programação
+- Criação de menus interativos
+- Organização de código em funções
+- Manipulação de dicionários
+- Pensamento em modularização e melhorias futuras
